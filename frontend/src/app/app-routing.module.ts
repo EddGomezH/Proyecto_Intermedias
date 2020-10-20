@@ -4,7 +4,7 @@ import {RegistrarClienteComponent } from '../app/components/registrar-cliente/re
 
 const routes: Routes = [
   {
-    path: 'registrar_clase',
+    path: 'registrar_cliente',
     component: RegistrarClienteComponent
   }
 ];

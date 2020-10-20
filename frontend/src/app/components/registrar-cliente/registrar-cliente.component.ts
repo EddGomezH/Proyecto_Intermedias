@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrarClienteComponent implements OnInit {
 
+  cliente = {
+    nombre:'',
+    nit:'',
+    dpi:'',
+    direccion:''
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  Registrar(){
+    console.log(this.cliente);
   }
 
 }
