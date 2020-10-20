@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistrarClienteService } from '../../services/registrar-cliente/registrar-cliente.service';
+import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-registrar-cliente',
@@ -11,10 +14,11 @@ export class RegistrarClienteComponent implements OnInit {
     nombre:'',
     nit:'',
     dpi:'',
-    direccion:''
+    direccion:'',
+    sede: 0
   }
 
-  constructor() { }
+  constructor(private registar:RegistrarClienteService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -23,4 +27,7 @@ export class RegistrarClienteComponent implements OnInit {
     console.log(this.cliente);
   }
 
+  Volver(){
+    this.router.navigate(['inicio_vendedor']);
+  }
 }
