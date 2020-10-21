@@ -11,14 +11,14 @@ app.use(cors());
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-    host: 'XXXXX',
-    user: 'XXXXX',
-    password: 'XXXXX',
-    database: 'XXXXX',
-    port: 0
+    host: 'localhost',
+    user: 'root',
+    password: 'hola1234',
+    database: 'SistemaBodegas'
 });
 connection.connect();
 
 const prueba = require('./endpoints/prueba')(app,connection);
+const ObtenerProductos = require('./endpoints/GetProductos')(app,connection);
 
 app.listen(3000, () => console.log('escuchando en puerto 3000'));
