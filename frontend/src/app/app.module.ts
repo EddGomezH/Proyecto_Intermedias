@@ -12,14 +12,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { InicioVendedorComponent } from './components/inicio-vendedor/inicio-vendedor.component';
 import { RegistrarVentaComponent } from './components/registrar-venta/registrar-venta.component';
-
+import { ReporteVentaComponent } from './components/reporte-venta/reporte-venta.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrarClienteComponent,
     InicioVendedorComponent,
-    RegistrarVentaComponent
+    RegistrarVentaComponent,
+    ReporteVentaComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -31,7 +33,8 @@ import { RegistrarVentaComponent } from './components/registrar-venta/registrar-
     FormsModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

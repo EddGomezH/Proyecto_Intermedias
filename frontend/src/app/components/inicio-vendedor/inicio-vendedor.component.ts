@@ -21,6 +21,10 @@ export class InicioVendedorComponent implements OnInit {
     this.router.navigate(['/registrar_venta']);
   }
 
+  reporte_ventas(){
+    this.router.navigate(['/reporte_venta']);
+  }
+
   perfil(){
     console.log('perfil...')
   }
