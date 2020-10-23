@@ -1,0 +1,69 @@
+<div style="background-color: darkgreen;">
+  <div class="basic-blok"></div>  
+  <div class="center-content">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar>
+            <mat-icon matSuffix>account_circle</mat-icon>
+          </div>
+          <mat-card-title>LOGIN</mat-card-title>
+          <mat-card-subtitle>User</mat-card-subtitle>
+        </mat-card-header>
+          <mat-tab-group>
+            <mat-tab label="Login">
+              <form class="example-form">
+
+                <div class="little-blok"></div>
+               
+                <mat-form-field class="example-full-width">
+                  <mat-label>E-mail</mat-label>
+                  <input type="email" matInput placeholder="Ingresar correo" value=""  [(ngModel)]="log_email" name="in_email" >
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width">
+                  <mat-label>Password</mat-label>
+                  <input type="password" matInput placeholder="Ingresar contraseña" value="" [(ngModel)]="log_password" name="in_password">
+                  <mat-icon matSuffix>vpn_key</mat-icon>
+                </mat-form-field>
+
+                
+              <mat-form-field appearance="fill" class="select-field-form">
+                <mat-label>Selección de rol</mat-label>
+                <mat-select placeholder="seleccion" [(ngModel)]="rol_seleccionado" name="seleccion">
+                  <mat-option *ngFor="let rol of roles" [value]="rol.value">
+                    {{rol.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+                <div class="little-blok"></div>
+
+                <button class="button-form-blue" (click)="login()" mat-button color="primary">Login</button>
+              
+              </form>
+              
+            </mat-tab>
+
+
+            <mat-tab label="Forgot your password?"> 
+
+              <div class="little-blok"></div>
+               
+              <mat-form-field class="example-full-width">
+                <mat-label>E-mail</mat-label>
+                <input type="email" matInput placeholder="Ingresar correo" value=""  [(ngModel)]="fg_email" name="in_fg_email" >
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+
+              <div class="little-blok"></div>
+
+              <button class="button-form-green"  (click)="enviar()" mat-button color="primary">Enviar</button>
+
+            </mat-tab>
+
+          </mat-tab-group>
+      </mat-card>
+    </div>
+    <div class="basic-blok"></div>  
+</div>
