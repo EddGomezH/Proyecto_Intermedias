@@ -11,6 +11,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
+import { OrdenesVentaComponent } from './components/ordenes-venta/ordenes-venta.component';
+import { OrdenesTransferenciaComponent } from './components/ordenes-transferencia/ordenes-transferencia.component';
+import { InicioRepartidorComponent } from './components/inicio-repartidor/inicio-repartidor.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 
 
@@ -19,6 +23,10 @@ import {MatSelectModule} from '@angular/material/select';
   declarations: [
     AppComponent,
     LoginComponent,
+    OrdenesVentaComponent,
+    OrdenesTransferenciaComponent,
+    InicioRepartidorComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserAnimationsModule,

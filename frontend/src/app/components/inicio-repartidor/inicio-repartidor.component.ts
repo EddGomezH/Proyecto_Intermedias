@@ -21,7 +21,7 @@ export class InicioRepartidorComponent implements OnInit {
     this.router.navigate(['/ordenes_compra']);
   }
   perfil(){
-    console.log('perfil...')
+    this.router.navigate(['/perfil']);
   }
 
   Salir(){
