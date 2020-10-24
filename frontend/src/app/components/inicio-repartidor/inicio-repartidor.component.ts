@@ -18,7 +18,7 @@ export class InicioRepartidorComponent implements OnInit {
   }
 
   ordenes_transferencia(){
-    this.router.navigate(['/ordenes_compra']);
+    this.router.navigate(['/ordenes_transferencia']);
   }
   perfil(){
     this.router.navigate(['/perfil']);

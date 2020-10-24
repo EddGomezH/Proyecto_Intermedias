@@ -11,6 +11,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+
 import { OrdenesVentaComponent } from './components/ordenes-venta/ordenes-venta.component';
 import { OrdenesTransferenciaComponent } from './components/ordenes-transferencia/ordenes-transferencia.component';
 import { InicioRepartidorComponent } from './components/inicio-repartidor/inicio-repartidor.component';
@@ -37,7 +39,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     MatButtonModule,
     FormsModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

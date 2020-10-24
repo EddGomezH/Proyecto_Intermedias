@@ -25,7 +25,7 @@ const routes: Routes = [
     component: OrdenesVentaComponent
   },
   {
-    path: 'ordenes_compra',
+    path: 'ordenes_transferencia',
     component: OrdenesTransferenciaComponent
   }
 ];

@@ -1,1 +1,46 @@
-<p>ordenes-venta works!</p>
+<div>
+    <div class="back-panel">
+      
+      <div class="back-sub1">
+        <div class="miniblok">
+          <h2>ORDENES DE VENTA</h2>
+        </div>
+      </div>
+
+      <div class="back-button">
+        <button mat-raised-button color="warn" (click)="Regresar()">Regresar</button>
+      </div>
+
+    </div>
+    <div>
+        <table mat-table [dataSource]="datos" class="mat-elevation-z8" #tabla1>
+
+            <ng-container matColumnDef="codigo">
+              <th mat-header-cell *matHeaderCellDef> Código </th>
+              <td mat-cell *matCellDef="let venta"> {{venta.codigo}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="descripcion">
+              <th mat-header-cell *matHeaderCellDef> Descripción </th>
+              <td mat-cell *matCellDef="let venta"> {{venta.descripcion}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="precio">
+              <th mat-header-cell *matHeaderCellDef> Precio </th>
+              <td mat-cell *matCellDef="let venta"> {{venta.precio}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="borrar">
+              <th mat-header-cell *matHeaderCellDef> Completar </th>
+              <td mat-cell *matCellDef="let j = index;">
+                <button mat-raised-button color="warn" focusable="false" (click)="borrarFila(j)">
+                  Entregar
+                </button>
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+          </table>
+    </div>
+</div>   
