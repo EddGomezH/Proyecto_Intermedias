@@ -3,6 +3,9 @@ import {Producto} from '../../models/producto';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import {ObProductosService} from '../../services/ObProductos/ob-productos.service';
+import{DialogServiceService} from '../../services/SDialog/dialog-service.service';
+import{ActProductoService}from '../../services/ActProducto/act-producto.service';
+
 
 @Component({
   selector: 'app-actualizacion-inventario',
@@ -12,8 +15,9 @@ import {ObProductosService} from '../../services/ObProductos/ob-productos.servic
 export class ActualizacionInventarioComponent implements OnInit {
 
   productos: Producto[]=[];
+  idUsuario=0;
 
-  constructor(private toastr: ToastrService,private router: Router,public ObPro:ObProductosService) { 
+  constructor(private actProduc:ActProductoService,private dialogService: DialogServiceService,private toastr: ToastrService,private router: Router,public ObPro:ObProductosService) { 
     /*if(!sessionStorage.getItem("id_usuario")){
       //menu.openSnackBar("No ha iniciado sesión", "Cerrar");
       this.router.navigate(['/login']);
@@ -22,7 +26,7 @@ export class ActualizacionInventarioComponent implements OnInit {
     this.idUsuario = Number(sessionStorage.getItem("id_usuario"));
     
     */
-
+   this.idUsuario=1;
   }
 
   ngOnInit(): void {
@@ -36,8 +40,29 @@ export class ActualizacionInventarioComponent implements OnInit {
       this.productos = data_api;
     })
   }
-  ActProducto(){
-
+  ActProducto(pro:Producto){
+    this.dialogService.ConfirmDialogActualizarProduc()
+    .afterClosed().subscribe(res => {
+      console.log(res);
+      if(res.resp){
+        this.actProduc.PutProducto(pro,res.Cantidad,res.Motivo,this.idUsuario,res.Bodega).subscribe(
+          res => {
+            console.log(res);
+            console.log(res.status);
+            if(res.res==200){
+              this.toastr.success('El Log fue actualizado!','Log Actualizado');
+            }else{
+              this.toastr.error('Error al obtener datos!','Log no se Actualizó');
+            }
+            
+          },
+          err => {
+            this.toastr.error('Error al conectar con servidor!','Log no se Actualizó');
+          }
+        );
+      
+      }
+    })
   }
 
 }

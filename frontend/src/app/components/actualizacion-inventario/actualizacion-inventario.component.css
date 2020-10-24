@@ -1,58 +1,59 @@
 .center {
-    border-radius: 5px;
-    border: 2px solid #4b0082;
+  border-radius: 5px;
+  border: 2px solid #4b0082;
 }
 .mat-card-title {
-    -webkit-text-stroke: 1px #8f5e03;
-    color: white;
-    font-size: xx-large;
-    font-family: "Courier New", Courier, monospace;
-    margin-left: 300px;
+  -webkit-text-stroke: 1px #8f5e03;
+  color: white;
+  font-size: xx-large;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  justify-content: space-between;
 }
 .card-deck-container {
-    width: 60%;
-    max-width: 1200px;
-    border-radius: 2px;
-    padding: 10px 10px 30px;
-    margin: 30px 30px 30px 30px;
-    background-color: #f5f5f5;
-    margin-left: 100px;
-  }
-  .card-item {
-    padding: 3px 3px 3px 3px;
-  }
-
-  .mat-card-actions{
-    margin-left: 270px;
-  }
-
-  .mat-card-content{
-    margin-left: 100px;
-  }
-
-  .ir_curso{
-   
-    background-color: #65f32d;
-    width:  125px;
-    }
-
-  .nuevo_curso{
-    background-color: #4a2b6d;
-    height: 70px;
-    width:  200px;
-    color:white;
-  }
-
-.card-deck-containe {
-  width: 95%;
-  max-width: 1350px;
+  
   border-radius: 2px;
-  padding: 10px 10px 10px;
-  margin: 10px 10px 10px 10px;
-  background-color: #f5f5f5;
-  margin-left: 0px;
+  padding: 10px 10px 30px;
+  margin: 30px 30px 30px 30px;
+  background-color: #a9ecee;
+  
+  margin-left: 70px;
 }
 
+.cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-item {
+  padding: 3px 3px 3px 3px;
+}
+
+
+
+.ir_curso{
+ 
+  background-color: #65f32d;
+  width:  125px;
+  }
+
+.nuevo_curso{
+  background-color: #4a2b6d;
+  height: 70px;
+  width:  200px;
+  color:white;
+}
+
+.card-deck-containe {
+width: 95%;
+max-width: 1350px;
+border-radius: 2px;
+padding: 10px 10px 10px;
+margin: 10px 10px 10px 10px;
+background-color: #f8b2b2;
+margin-left: 0px;
+}
 
 h1 {
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
@@ -121,3 +122,4 @@ h1 {
         7px 7px 0px rgba(0, 0, 0, 0.2);
     }
   
+    
