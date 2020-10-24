@@ -14,7 +14,7 @@ export class RegistrarClienteComponent implements OnInit {
     nit:'',
     dpi:'',
     direccion:'',
-    sede: 0
+    id_usuario:1
   }
 
   constructor(private registar:RegistrarClienteService, private router:Router) { }
@@ -23,7 +23,9 @@ export class RegistrarClienteComponent implements OnInit {
   }
 
   Registrar(){
-    console.log(this.cliente);
+    this.registar.registrar_cliente(this.cliente).subscribe((res:any) => {
+      console.log(res);
+    });
   }
 
   Volver(){

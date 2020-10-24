@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistrarClienteService } from 'src/app/services/registrar-cliente/registrar-cliente.service';
+import { RegistrarVentaService } from 'src/app/services/registrar-venta/registrar-venta.service';
 import { Router } from '@angular/router';
+import { HIGH_CONTRAST_MODE_ACTIVE_CSS_CLASS } from '@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector';
 
 @Component({
   selector: 'app-registrar-venta',
@@ -11,16 +12,20 @@ export class RegistrarVentaComponent implements OnInit {
 
   venta = {
     nit: '',
-    id_vendedor: localStorage.getItem('id_usuario'),
+    id_vendedor: sessionStorage.getItem('id_usuario'),
     fecha_facturacion: new Date().toLocaleDateString(),
     fecha_entrega: '',
     productos: ''
   }
   domicilio=false;
-  lproducto = [{nombre:'arroz',cantidad:'',precio:0},{nombre:'azucar', cantidad:'',precio:0},{nombre:'cafe',cantidad:'',precio:0},{nombre:'frijol', cantidad:'',precio:0},{nombre:'maiz', cantidad:'',precio:0},{nombre:'harina', cantidad:'',precio:0}]
+  lproducto = [];
   carrito = [];
 
-  constructor(private vender:RegistrarClienteService, private router:Router) { }
+  constructor(private vender:RegistrarVentaService, private router:Router) { 
+    this.vender.getProductos().subscribe((res:any[]) => {
+      this.lproducto=res;
+    });
+  }
 
   ngOnInit(): void { }
 
@@ -29,8 +34,10 @@ export class RegistrarVentaComponent implements OnInit {
   }
 
   Vender(){
-    this.venta.productos = JSON.stringify(this.carrito);
-    console.log(this.venta);
+    this.venta.productos = JSON.parse(JSON.stringify(this.carrito));
+    this.vender.realizar_venta(this.venta).subscribe((res:any) => {
+      console.log(res);
+    });
   }
 
   Volver(){

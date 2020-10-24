@@ -15,7 +15,7 @@
                 <p>
                     <mat-label>Tipo Entrega: </mat-label>
                     <br>
-                    <mat-checkbox [(ngModel)]="domicilio">Domicilio</mat-checkbox>
+                    <mat-checkbox [(ngModel)]="domicilio">Local</mat-checkbox>
                 </p>
                 <p>
                     <mat-form-field style="width: 320px;">
@@ -42,13 +42,15 @@
                       <th>Nombre</th>
                       <th>Precio</th>
                       <th>Cantidad</th>
+                      <th>Descuento</th>
                       <th>Agregar</th>
                     </tr>
                     <tr *ngFor="let prod of lproducto let i=index">
                         <td>{{i+1}}</td>
-                        <td>{{prod.nombre}}</td>
-                        <td>{{prod.precio}}</td>
+                        <td>{{prod.Nombre}}</td>
+                        <td>{{prod.Precio}}</td>
                         <td><input matInput [(ngModel)]="prod.cantidad"></td>
+                        <td><input matInput [(ngModel)]="prod.descuento"></td>
                         <td><button mat-raised-button color="primary" (click)="AgregarCarrito(prod)">Agregar</button></td>
                     </tr>
                   </table>
