@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrarClienteService } from '../../services/registrar-cliente/registrar-cliente.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registrar-cliente',
@@ -17,14 +18,18 @@ export class RegistrarClienteComponent implements OnInit {
     id_usuario:1
   }
 
-  constructor(private registar:RegistrarClienteService, private router:Router) { }
+  constructor(private registar:RegistrarClienteService, private router:Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
 
   Registrar(){
     this.registar.registrar_cliente(this.cliente).subscribe((res:any) => {
-      console.log(res);
+      if(res.msg=='Correcto'){
+        this.toastr.success('El cliente se registro con exito','Cliente Registrado');
+      }else if(res.msg=='Incorrecto'){
+        this.toastr.warning('El cliente que desea registrar ya se encuentra registrado', 'Cliente ya Registrado');
+      }
     });
   }
 

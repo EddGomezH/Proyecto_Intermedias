@@ -16,4 +16,12 @@ export class RegistrarVentaService {
   realizar_venta(venta:any){
     return this.http.post(baseURL+'registrar_venta',venta);
   }
+
+  datos_venta(){
+    return this.http.get(baseURL+'get_datos_venta');
+  }
+
+  detalle_venta(venta:any){
+    return this.http.post(baseURL+'get_detalle_venta',venta);
+  }
 }

@@ -14,6 +14,11 @@ import { InicioVendedorComponent } from './components/inicio-vendedor/inicio-ven
 import { RegistrarVentaComponent } from './components/registrar-venta/registrar-venta.component';
 import { ReporteVentaComponent } from './components/reporte-venta/reporte-venta.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import pdfFonts from "pdfmake/build/vfs_fonts"; 
+import { ToastrModule } from 'ngx-toastr';
+
+PdfMakeWrapper.setFonts(pdfFonts);
 
 @NgModule({
   declarations: [
@@ -34,7 +39,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
