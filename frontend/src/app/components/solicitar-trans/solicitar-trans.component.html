@@ -1,0 +1,48 @@
+<div fxLayout="row" fxFlex.md="70" style="margin-left: 28px;" fxLayoutWrap class="card-deck-containe mat-elevation-z4" id="ca1">
+    <h1  class='elegantshadow'>Solicitud Transferencia</h1>
+    
+        <mat-card>
+            <mat-card-header class="cont">        
+            </mat-card-header>
+            <mat-card-actions class="cont">
+                <mat-form-field style="text-align: center;" >
+                    <mat-select placeholder="Bodega Necesitada" [(ngModel)]="selectedValue" name="bodega">
+                      <mat-option  *ngFor="let bodega of Bodegas" [value]="bodega.FK_Sede">
+                        {{bodega.Nombre}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button style="margin-left: 128px;" mat-flat-button class="ir_curso" (click)="Solicitar()" >Solicitar</button>
+                <mat-radio-group style="margin-left: 128px;" [(ngModel)]="Tipo" aria-label="Select an option">
+                    <mat-radio-button  value="1">Interna</mat-radio-button>
+                    <mat-radio-button  value="2">Externa</mat-radio-button>
+                </mat-radio-group>
+            </mat-card-actions>
+
+        </mat-card>
+</div>
+
+<div>
+<div fxFlex *ngFor="let producto of productos" class="card-item" >
+    <div style="
+    width: 40%;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;"
+    class="card-deck-container mat-elevation-z4">
+            <mat-card>
+                <mat-card-header class="cont">
+                    <mat-card-title>{{producto.Nombre}}</mat-card-title>
+                    
+                </mat-card-header>
+                <mat-card-actions class="cont">
+                    <mat-form-field>
+                    <input matInput type="number" placeholder="Cantidad"  min="0" [(ngModel)]="producto.Precio" >
+                    </mat-form-field>
+                </mat-card-actions>
+            </mat-card>
+       
+        </div> 
+    </div>
+</div>

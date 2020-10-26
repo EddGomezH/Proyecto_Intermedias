@@ -9,6 +9,6 @@ export class ObProductosService {
   constructor(private http: HttpClient) { }
 
   getProductos(){
-    return this.http.get('http://localhost:3000/Productos');
+    return  this.http.get('http://localhost:3000/Productos');
   }
 }

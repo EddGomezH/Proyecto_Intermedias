@@ -16,7 +16,7 @@
     <br>
     <mat-form-field style="text-align: center;">
         <mat-select [(ngModel)]="selectedValue" name="bodega">
-          <mat-option *ngFor="let bodega of Bodegas" [value]="bodega.Id_Bodega">
+          <mat-option *ngFor="let bodega of Bodegas" [value]="bodega.Id_Sede">
             {{bodega.Nombre}}
           </mat-option>
         </mat-select>

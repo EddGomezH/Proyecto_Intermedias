@@ -15,12 +15,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
+import { SolicitarTransComponent } from './components/solicitar-trans/solicitar-trans.component';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
     AppComponent,
     ActualizacionInventarioComponent,
-    DialogoActProducComponent
+    DialogoActProducComponent,
+    SolicitarTransComponent
   ],
   imports: [
     MatSelectModule,
@@ -29,9 +33,11 @@ import {MatSelectModule} from '@angular/material/select';
     MatButtonModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatListModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
     FormsModule,
+    MatRadioModule,
     MatDialogModule, // <--- Aquí
   ],
   providers: [{ provide: MatDialogRef, useValue: {} }, { provide: MAT_DIALOG_DATA, useValue: [] }],
