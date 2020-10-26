@@ -1,68 +1,67 @@
 <div style="background-color: darkgreen;">
-    <div class="basic-blok"></div>  
-    <div class="center-content">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar>
-              <mat-icon matSuffix>account_circle</mat-icon>
-            </div>
-            <mat-card-title>PERFIL</mat-card-title>
-            <mat-card-subtitle>configuración</mat-card-subtitle>
-          </mat-card-header>
+  <div class="basic-blok"></div>  
+  <div class="center-content">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar>
+            <mat-icon matSuffix>account_circle</mat-icon>
+          </div>
+          <mat-card-title>PERFIL</mat-card-title>
+          <mat-card-subtitle>configuración</mat-card-subtitle>
+        </mat-card-header>
 
-                <form class="example-form">
-  
-                  <div class="little-blok"></div>
+              <form class="example-form">
 
-                  <mat-form-field class="example-full-width">
-                    <mat-label>DPI</mat-label>
-                    <input type="number" matInput placeholder="Ingresar DPI" value="" [(ngModel)]="dpi" name="in_dpi">
-                  </mat-form-field>
+                <div class="little-blok"></div>
 
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Nombre</mat-label>
-                    <input matInput placeholder="Ingresar nombre" value="" [(ngModel)]="nombre" name="in_nobre">
-                  </mat-form-field>
-
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Fecha de Nacimiento</mat-label>
-                    <input type="date" matInput placeholder="Ingresar fecha" value="" [(ngModel)]="fecha" name="in_fecha">
-                  </mat-form-field>
-
-                  <mat-form-field class="example-full-width">
-                    <mat-label>E-mail</mat-label>
-                    <input type="email" matInput placeholder="Ingresar correo" value=""  [(ngModel)]="email" name="in_email" >
-                  </mat-form-field>
-                
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Password</mat-label>
-                    <input type="password" matInput placeholder="Ingresar contraseña" value="" [(ngModel)]="password" name="in_password">
-                  </mat-form-field>
-
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Confirm password</mat-label>
-                    <input type="password" matInput placeholder="Confirma tu contraseña" value="" [(ngModel)]="c_password" name="in_c_password">
-                  </mat-form-field>
-  
-                  
-                <mat-form-field appearance="fill" class="select-field-form">
-                  <mat-label>Selección de rol</mat-label>
-                  <mat-select placeholder="seleccion" [(ngModel)]="rol_seleccionado" name="seleccion">
-                    <mat-option *ngFor="let rol of roles" [value]="rol.value">
-                      {{rol.viewValue}}
-                    </mat-option>
-                  </mat-select>
+                <mat-form-field class="example-full-width">
+                  <mat-label>DPI</mat-label>
+                  <input type="number" matInput placeholder="Ingresar DPI" value="" [(ngModel)]="usuario.dpi" name="in_dpi">
                 </mat-form-field>
-  
-                  <div class="little-blok"></div>
-  
-                  <button class="button-form-blue" (click)="Modificar()" mat-button color="primary">Modificar</button>
-                  <button class="button-form-red" (click)="Cancelar()" mat-button color="primary">Cancelar</button>
 
-                </form>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Nombre</mat-label>
+                  <input matInput placeholder="Ingresar nombre" value="" [(ngModel)]="usuario.nombre" name="in_nobre">
+                </mat-form-field>
 
-        </mat-card>
-      </div>
-      <div class="basic-blok"></div>  
-  </div>
-  
+                <mat-form-field class="example-full-width">
+                  <mat-label>Fecha de Nacimiento</mat-label>
+                  <input type="date" matInput placeholder="Ingresar fecha" value="" [(ngModel)]="usuario.fecha" name="in_fecha">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>E-mail</mat-label>
+                  <input type="email" matInput placeholder="Ingresar correo" value=""  [(ngModel)]="usuario.email" name="in_email" >
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width">
+                  <mat-label>Password</mat-label>
+                  <input type="password" matInput placeholder="Ingresar contraseña" value="" [(ngModel)]="usuario.password" name="in_password">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Confirm password</mat-label>
+                  <input type="password" matInput placeholder="Confirma tu contraseña" value="" [(ngModel)]="c_password" name="in_c_password">
+                </mat-form-field>
+
+                
+              <mat-form-field appearance="fill" class="select-field-form">
+                <mat-label>Ver roles disponibles</mat-label>
+                <mat-select placeholder="seleccion" [(ngModel)]="rol_seleccionado" name="seleccion">
+                  <mat-option *ngFor="let rol of roles" [value]="rol.value">
+                    {{rol.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+                <div class="little-blok"></div>
+
+                <button class="button-form-blue" (click)="Modificar()" mat-button color="primary">Modificar</button>
+                <button class="button-form-red" (click)="Cancelar()" mat-button color="primary">Cancelar</button>
+
+              </form>
+
+      </mat-card>
+    </div>
+    <div class="basic-blok"></div>  
+</div>

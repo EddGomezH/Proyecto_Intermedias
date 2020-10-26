@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {Location} from '@angular/common';
+import { LoginService } from "../../services/login/login.service";
 
 interface Rol {
   value: string;
@@ -17,20 +20,38 @@ export class LoginComponent implements OnInit {
     {value: 'bodequero', viewValue: 'Bodeguero'}
   ];
 
-  rol_seleccionado: string=this.roles[0].value
+  
 
-  log_email: string
-  log_password:string
+  credenciales=
+  {
+    email: '',
+    password:'',
+  }
+
+  rol_seleccionado: string=this.roles[0].value;
+
   fg_email: string 
   
-  constructor() { }
+  constructor(private usuario_login:LoginService,private router:Router,private _location: Location) { }
 
   ngOnInit(): void {
   }
 
   login()
   {
-    console.log(this.log_email,this.log_password,this.rol_seleccionado)
+    if(this.credenciales.email!=''&&this.credenciales.password!='')
+    {
+      this.usuario_login.login(this.credenciales).subscribe((res:any) => {
+        if(res.msg!='Incorrecto'){
+          alert('Sesión iniciada');
+          console.log(res.msg[0].Id_Usuario,res.msg[0].Nombre);
+        }else {
+          alert('Error correo electrónico y/o contraseña incorrectos');
+        }
+      });   
+      return; 
+    }
+    alert("Ingres sus credenciales por favor");
   }
 
   enviar()
