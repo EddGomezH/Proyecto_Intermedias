@@ -24,4 +24,8 @@ export class RegistrarVentaService {
   detalle_venta(venta:any){
     return this.http.post(baseURL+'get_detalle_venta',venta);
   }
+
+  reporte_ventas_lineas(){
+    return this.http.get(baseURL+'grafica_general');
+  }
 }

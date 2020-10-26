@@ -17,6 +17,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
 import pdfFonts from "pdfmake/build/vfs_fonts"; 
 import { ToastrModule } from 'ngx-toastr';
+import { ChartsModule } from 'ng2-charts';
 
 PdfMakeWrapper.setFonts(pdfFonts);
 
@@ -40,7 +41,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MatIconModule,
     MatInputModule,
     MatCheckboxModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,50 @@
-<p>reporte-venta works!</p>
+<div class="center1" style="margin-left: 200px; margin-top: 30px; width: 500px; height: 500px;">
+    <div class="flex-item">
+      <div style="display: block;">
+      <canvas baseChart width="150" height="150" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+      </div>
+    </div>
+    <div>
+      <div style="margin-top: 30px;">
+        <button mat-button mat-raised-button color="primary" (click)="Lineas()">Lineas</button>
+        <button mat-button mat-raised-button color="primary" style="margin-left: 15px;" (click)="Barras()">Barras</button>
+        <button mat-button mat-raised-button color="primary" style="margin-left: 15px;" (click)="Dona()">Dona</button>
+      </div>
+    </div>
+</div>
+<div class="center2">
+  <mat-card style="width: 400px;">
+    <mat-card-header>
+      <mat-card-title>Filtros</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="margin-left: 20px;">
+        <p>
+            <mat-form-field style="width: 350px;">
+                <mat-label>Vendedor: </mat-label>
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <input matInput [(ngModel)]="vendedor.nombre_vendedor">
+            </mat-form-field>
+            <mat-form-field style="width: 350px;">
+              <mat-label>Fecha Inicio: </mat-label>
+              <input matInput type="date" [(ngModel)]="vendedor.fecha_inicio">
+          </mat-form-field>
+          <mat-form-field style="width: 350px;">
+            <mat-label>Fecha Fin: </mat-label>
+            <input matInput type="date" [(ngModel)]="vendedor.fecha_fin">
+        </mat-form-field>
+            <button mat-raised-button color="primary" style="width: 350px;" (click)="Filtrar()">Filtrar</button>
+        </p>
+    </mat-card-content>
+    <mat-card-actions style="margin-left: 20px;">
+      <button mat-raised-button color="primary" style="width: 100px;">Mes</button>
+      <button mat-raised-button color="primary" style="margin-left: 20px; width: 100px;">Semana</button>
+      <button mat-raised-button color="primary" style="margin-left: 20px; width: 100px;">Dia</button>
+      <p>
+        <button mat-raised-button color="accent" style="margin-top: 15px; width: 350px;" (click)="Reset()">Restablecer</button>
+      </p>
+      <p>
+        <button mat-raised-button color="warn" style="width: 350px;" (click)="Volver()">Volver</button>
+      </p>
+    </mat-card-actions>
+  </mat-card>
+</div>
