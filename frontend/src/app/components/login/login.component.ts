@@ -4,7 +4,7 @@ import {Location} from '@angular/common';
 import { LoginService } from "../../services/login/login.service";
 
 interface Rol {
-  value: string;
+  value: number;
   viewValue: string;
 }
 
@@ -15,9 +15,9 @@ interface Rol {
 })
 export class LoginComponent implements OnInit {
   roles: Rol[] = [
-    {value: 'vendedor', viewValue: 'Vendedor'},
-    {value: 'repartidor', viewValue: 'Repartidor'},
-    {value: 'bodequero', viewValue: 'Bodeguero'}
+    {value: 1, viewValue: 'Vendedor'},
+    {value: 2, viewValue: 'Bodeguero'},
+    {value: 3, viewValue: 'Repartidor'}
   ];
 
   
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     password:'',
   }
 
-  rol_seleccionado: string=this.roles[0].value;
+  rol_seleccionado: number=this.roles[0].value;
 
   fg_email: string 
   
@@ -43,8 +43,18 @@ export class LoginComponent implements OnInit {
     {
       this.usuario_login.login(this.credenciales).subscribe((res:any) => {
         if(res.msg!='Incorrecto'){
-          alert('Sesión iniciada');
-          console.log(res.msg[0].Id_Usuario,res.msg[0].Nombre);
+          for(let registro of res.msg)
+          {
+            if(registro.FK_Rol==this.rol_seleccionado)
+            {
+              sessionStorage.setItem('id',registro.id_usuario);
+              alert('Sesión iniciada');
+              this.iniciar_sesion();
+              return;
+            }
+          }
+          alert("No tienes permiso de iniciar sesión con el rol seleccionado")
+          //console.log(res.msg);
         }else {
           alert('Error correo electrónico y/o contraseña incorrectos');
         }
@@ -52,6 +62,24 @@ export class LoginComponent implements OnInit {
       return; 
     }
     alert("Ingres sus credenciales por favor");
+  }
+
+  iniciar_sesion()
+  {
+    switch(this.rol_seleccionado)
+    {
+      case 1:
+        //this.router.navigate(['/inicio-repartidor']);
+        alert("inicio vendedor");
+      break;
+      case 2:
+        //this.router.navigate(['/inicio-repartidor']);
+        alert("inicio bodeguero");
+      break;
+      case 3:
+        this.router.navigate(['/inicio-repartidor']);
+      break;
+    }
   }
 
   enviar()

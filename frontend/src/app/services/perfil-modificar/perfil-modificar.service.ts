@@ -5,7 +5,7 @@ import { baseURL } from "../shared/baseURL";
 @Injectable({
   providedIn: 'root'
 })
-export class PerfilService {
+export class PerfilModificarService {
 
   constructor(private http:HttpClient) { }
 
@@ -13,9 +13,5 @@ export class PerfilService {
   {
     return this.http.post(baseURL+'perfil',usuario);
   }
-
-  obtener_datos(id:any)
-  { 
-    return  this.http.post(baseURL+'perfil-datos',id);
-  }
+  
 }

@@ -25,7 +25,8 @@ export class InicioRepartidorComponent implements OnInit {
   }
 
   Salir(){
-    console.log('saliendo...');
+    sessionStorage.removeItem('id');
+    this.router.navigate(['/login']);
   }
 
 }
