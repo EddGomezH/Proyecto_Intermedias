@@ -15,10 +15,12 @@ export class RegistrarClienteComponent implements OnInit {
     nit:'',
     dpi:'',
     direccion:'',
-    id_usuario:1
+    id_usuario:0
   }
 
-  constructor(private registar:RegistrarClienteService, private router:Router, private toastr:ToastrService) { }
+  constructor(private registar:RegistrarClienteService, private router:Router, private toastr:ToastrService) {
+      this.cliente.id_usuario=Number(sessionStorage.getItem('id'));
+   }
 
   ngOnInit(): void {
   }

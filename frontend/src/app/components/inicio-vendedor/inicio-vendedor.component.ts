@@ -30,6 +30,6 @@ export class InicioVendedorComponent implements OnInit {
   }
 
   Salir(){
-    console.log('saliendo...');
+    //sessionStorage.clear();
   }
 }

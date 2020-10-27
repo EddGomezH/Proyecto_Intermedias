@@ -75,7 +75,31 @@ export class ReporteVentaComponent implements OnInit {
   }
 
   Filtrar(){
+    this.ventas.filtrar_vendedor(this.vendedor).subscribe((res:any) => {
+       this.lineChartData=res.ventas;
+       this.lineChartLabels=res.fechas;
+    });
+  }
 
+  Mes(){
+    this.ventas.Mes().subscribe((res:any) => {
+      this.lineChartData=res.ventas;
+      this.lineChartLabels=res.meses;
+    });
+  }
+
+  Semana(){
+    this.ventas.Semana().subscribe((res:any) => {
+      this.lineChartData=res.ventas;
+      this.lineChartLabels=res.semanas;
+    });
+  }
+
+  Dia(){
+    this.ventas.Dia().subscribe((res:any) => {
+      this.lineChartData=res.ventas;
+      this.lineChartLabels=res.dias;
+    });
   }
 
   Reset(){

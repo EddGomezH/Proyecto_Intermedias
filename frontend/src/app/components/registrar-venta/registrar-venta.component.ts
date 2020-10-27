@@ -13,7 +13,7 @@ export class RegistrarVentaComponent implements OnInit {
 
   venta = {
     nit: '',
-    id_vendedor: sessionStorage.getItem('id_usuario'),
+    id_vendedor: Number(sessionStorage.getItem('id')),
     fecha_facturacion: new Date().toLocaleDateString(),
     fecha_entrega: '',
     productos: ''
