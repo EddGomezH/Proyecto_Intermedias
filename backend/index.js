@@ -21,6 +21,7 @@ connection.connect();
 
 const prueba = require('./endpoints/prueba')(app,connection);
 const perfil = require('./endpoints/perfil')(app,connection);
+const perfil_modificar = require('./endpoints/perfil_modificar')(app,connection);
 const login = require('./endpoints/login')(app,connection);
 
 app.listen(3000, () => console.log('escuchando en puerto 3000'));
