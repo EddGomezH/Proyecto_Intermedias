@@ -18,13 +18,15 @@ import {MatSelectModule} from '@angular/material/select';
 import { SolicitarTransComponent } from './components/solicitar-trans/solicitar-trans.component';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
+import { VATransExternasComponent } from './components/vatrans-externas/vatrans-externas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ActualizacionInventarioComponent,
     DialogoActProducComponent,
-    SolicitarTransComponent
+    SolicitarTransComponent,
+    VATransExternasComponent
   ],
   imports: [
     MatSelectModule,

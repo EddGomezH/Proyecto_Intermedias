@@ -59,8 +59,7 @@ export class SolicitarTransComponent implements OnInit {
 
   async Solicitar(){
     this.transaccion=-1;
-    console.log(this.productos);
-    console.log(this.Tipo);
+    
     let existe:boolean=false;
     for(var i=0; i<this.productos.length;i++){
       if(this.productos[i].Precio!=0){
@@ -74,13 +73,9 @@ export class SolicitarTransComponent implements OnInit {
       }else{
         await this.Solicitar2();
       }
-      console.log(this.productos);
       for(var i=0; i<this.productos.length;i++){
-        console.log('no ent');
         if(this.productos[i].Precio!=0){
-          console.log('no ent1');
           if(this.transaccion!=-1){
-            console.log('no ent2');
             this.AdT.AgDTransferencia(this.productos[i].Id_Producto,this.transaccion,this.productos[i].Precio).subscribe(
               res => {
                 if(res.res==200){
@@ -122,6 +117,7 @@ export class SolicitarTransComponent implements OnInit {
   }
 
   async Solicitar2() {
+    
     return new Promise((resolve, reject) => {
       this.AT.AgTransferencia(0, this.idUsuario, this.selectedValue).subscribe(res => {
         if (res.res == 200) {

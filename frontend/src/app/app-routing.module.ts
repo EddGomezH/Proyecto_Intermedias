@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {ActualizacionInventarioComponent} from '../app/components/actualizacion-inventario/actualizacion-inventario.component';
 import { fromEventPattern } from 'rxjs';
 import {SolicitarTransComponent} from '../app/components/solicitar-trans/solicitar-trans.component';
+import {VATransExternasComponent} from '../app/components/vatrans-externas/vatrans-externas.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'SoliTrans',
     component: SolicitarTransComponent,
+  },
+  {
+    path: 'VerTransEx',
+    component: VATransExternasComponent,
   },
 ];
 

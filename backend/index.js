@@ -24,5 +24,7 @@ const PostProductos = require('./endpoints/PostLog')(app,connection);
 const GetBodegas = require('./endpoints/GetBodegas')(app,connection);
 const PostTransferencia= require('./endpoints/PostTransferencia')(app,connection);
 const PostDtrans= require('./endpoints/PostDTrans')(app,connection);
+const GetContra= require('./endpoints/RContrasenia')(app,connection);
+const GetTransE= require('./endpoints/TransExternas')(app,connection);
 
 app.listen(3000, () => console.log('escuchando en puerto 3000'));
