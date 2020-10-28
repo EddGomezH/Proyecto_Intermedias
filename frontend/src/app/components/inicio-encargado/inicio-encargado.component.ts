@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-encargado',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioEncargadoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  sede_encargado(){
+    this.router.navigate(['/sede_encargado']);
+  }
+
+  registrar_rol(){
+    this.router.navigate(['/registrar_rol']);
+  }
+
+  salir(){}
 }

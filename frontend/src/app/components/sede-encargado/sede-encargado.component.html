@@ -1,0 +1,73 @@
+<div class="center1" >
+    <mat-card style="width: 900px; height: 480px;">
+        <mat-card-header>
+            <mat-card-title>Registro de Sede y Encargado</mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="margin-left: 20px;">
+            <div class="center2">
+                <mat-card style="width: 350px;">
+                    <mat-card-header>
+                      <mat-card-title>Sede</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content style="margin-left: 20px;">
+                        <p>
+                            <mat-form-field style="width: 300px;">
+                                <mat-label>Alias: </mat-label>
+                                <mat-icon matSuffix>account_circle</mat-icon>
+                                <input matInput [(ngModel)]="sede_encargado.alias">
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field style="width: 300px;">
+                                <mat-label>Direccion: </mat-label>
+                                <mat-icon matSuffix>home</mat-icon>
+                                <input matInput [(ngModel)]="sede_encargado.direccion">
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field style="width: 300px;">
+                                <mat-label>Departamento: </mat-label>
+                                <mat-icon matSuffix>filter_hdr</mat-icon>
+                                <input matInput [(ngModel)]="sede_encargado.departamento">
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field style="width: 300px;">
+                                <mat-label>Municipio: </mat-label>
+                                <mat-icon matSuffix>nature</mat-icon>
+                                <input matInput [(ngModel)]="sede_encargado.municipio">
+                            </mat-form-field>
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="center3">
+                <mat-card style="width: 350px;">
+                    <mat-card-header>
+                      <mat-card-title>Encargado</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content style="margin-left: 20px;">
+                        <p>
+                            <mat-form-field style="width: 300px;">
+                                <mat-label>Nombre: </mat-label>
+                                <mat-icon matSuffix>account_circle</mat-icon>
+                                <input matInput [(ngModel)]="sede_encargado.nombre">
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field style="width: 300px;">
+                                <mat-label>Contraseña: </mat-label>
+                                <mat-icon matSuffix>dialpad</mat-icon>
+                                <input matInput type="password" [(ngModel)]="sede_encargado.pass">
+                            </mat-form-field>
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </mat-card-content>
+        <mat-card-actions style="margin-top: 380px; margin-left: 30px;">
+            <button mat-raised-button color="primary" style="width: 100px;" (click)="Registrar()">Registrar</button>
+            <button mat-raised-button color="warn" style="margin-left: 20px; width: 100px;" (click)="Volver()">Volver</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
