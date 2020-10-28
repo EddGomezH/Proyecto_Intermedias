@@ -18,6 +18,9 @@ import { PdfMakeWrapper } from 'pdfmake-wrapper';
 import pdfFonts from "pdfmake/build/vfs_fonts"; 
 import { ToastrModule } from 'ngx-toastr';
 import { ChartsModule } from 'ng2-charts';
+import { InicioEncargadoComponent } from './components/inicio-encargado/inicio-encargado.component';
+import { SedeEncargadoComponent } from './components/sede-encargado/sede-encargado.component';
+import { RegistarRolComponent } from './components/registar-rol/registar-rol.component';
 
 PdfMakeWrapper.setFonts(pdfFonts);
 
@@ -27,10 +30,14 @@ PdfMakeWrapper.setFonts(pdfFonts);
     RegistrarClienteComponent,
     InicioVendedorComponent,
     RegistrarVentaComponent,
-    ReporteVentaComponent
+    ReporteVentaComponent,
+    InicioEncargadoComponent,
+    SedeEncargadoComponent,
+    RegistarRolComponent
   ],
   imports: [
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
     MatCardModule,

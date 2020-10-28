@@ -1,0 +1,60 @@
+<div class="cardconfig">
+    <div class="center1">
+        <mat-card style="width: 400px; height: 520px;">
+            <mat-card-header>
+              <mat-card-title>Registrar Usuario</mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="margin-left: 20px;">
+                <p>
+                    <mat-form-field style="width: 350px;">
+                        <mat-label>DPI: </mat-label>
+                        <mat-icon matSuffix>credit_card</mat-icon>
+                        <input matInput [(ngModel)]="user.dpi">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field style="width: 350px;">
+                        <mat-label>Nombre: </mat-label>
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <input matInput [(ngModel)]="user.nombre">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field style="width: 350px;">
+                        <mat-label>Fecha Nacimiento: </mat-label>
+                        <input matInput type="date" [(ngModel)]="user.fecha_nacimiento">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field style="width: 350px;">
+                        <mat-label>Correo: </mat-label>
+                        <mat-icon matSuffix>markunread_mailbox</mat-icon>
+                        <input matInput type="email" [(ngModel)]="user.correo">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field style="width: 350px;">
+                        <mat-label>Contraseña: </mat-label>
+                        <mat-icon matSuffix>lock</mat-icon>
+                        <input matInput type="password" [(ngModel)]="user.pass">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-label>Roles </mat-label>
+                    <br>
+                    <mat-checkbox style="margin-left: 20px;" [(ngModel)]="user.vendedor">Vendedor</mat-checkbox>
+                    <mat-checkbox style="margin-left: 20px;" [(ngModel)]="user.bodeguero">Bodeguero</mat-checkbox>
+                    <mat-checkbox style="margin-left: 20px;" [(ngModel)]="user.repartidor">Repartidor</mat-checkbox>
+                </p>
+            </mat-card-content>
+            <mat-card-actions style="margin-left: 20px;">
+              <button mat-raised-button color="primary" (click)="Registrar()">Registrar</button>
+              <button mat-raised-button style="margin-left: 20px;" color="warn" (click)="Volver()">Volver</button>
+              <br>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+    <div class="center2">
+        <img src="assets/images/roles.jpg" style="height: 300px; width: 300px;">
+    </div>
+</div>

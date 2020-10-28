@@ -4,6 +4,9 @@ import { RegistrarClienteComponent } from '../app/components/registrar-cliente/r
 import { InicioVendedorComponent } from '../app/components/inicio-vendedor/inicio-vendedor.component';
 import { RegistrarVentaComponent } from '../app/components/registrar-venta/registrar-venta.component';
 import { ReporteVentaComponent } from '../app/components/reporte-venta/reporte-venta.component';
+import { InicioEncargadoComponent } from '../app/components/inicio-encargado/inicio-encargado.component';
+import { SedeEncargadoComponent } from '../app/components/sede-encargado/sede-encargado.component';
+import { RegistarRolComponent } from '../app/components/registar-rol/registar-rol.component';
 
 const routes: Routes = [
   {
@@ -21,7 +24,19 @@ const routes: Routes = [
   {
     path: 'reporte_venta',
     component: ReporteVentaComponent
-  }
+  },
+  {
+    path: 'inicio_encargado',
+    component: InicioEncargadoComponent
+  },
+  {
+    path: 'sede_encargado',
+    component: SedeEncargadoComponent
+  },
+  {
+    path: 'registrar_rol',
+    component: RegistarRolComponent
+  },
 ];
 
 @NgModule({
