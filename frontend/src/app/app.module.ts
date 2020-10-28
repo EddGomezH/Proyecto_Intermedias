@@ -48,7 +48,6 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MatIconModule,
     MatInputModule,
     MatCheckboxModule,
-    ToastrModule.forRoot(),
     ChartsModule
   ],
   providers: [],

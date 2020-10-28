@@ -9,7 +9,7 @@
 .center1 {
     margin: 0;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -20,7 +20,7 @@
 .center2 {
     margin: 0;
     position: absolute;
-    top: 45%;
+    top: 55%;
     left: 25%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -29,7 +29,7 @@
 .center3 {
     margin: 0;
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 70%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
