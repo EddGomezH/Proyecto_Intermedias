@@ -1,10 +1,10 @@
 module.exports = (app,connection) => {
-    app.post('/perfil', async (req,res) => {
-        console.log("modificando")
-        let { dpi,nombre,fecha,email,password,id_usuario } = req.body;
-        let sql = "UPDATE usuario SET DPI = ?, Nombre = ?, Fecha_Nacimiento = ?, Correo = ?, Contrasena= ? WHERE Id_Usuario=?;";
-        let data = [dpi,nombre,fecha,email,password,id_usuario];
-        
+    app.post('/set_estado_ventas', async (req,res) => {
+        let { id_venta } = req.body;
+        let sql = "UPDATE venta SET estado=1 WHERE id_venta=?;";
+        let data = [id_venta];
+        console.log("modificando",id_venta)
+
         connection.query(sql, data, (error, results, fields) => {
             //console.log('error',error)
             //console.log('results',results)
@@ -19,3 +19,4 @@ module.exports = (app,connection) => {
         });
     });
 }
+
