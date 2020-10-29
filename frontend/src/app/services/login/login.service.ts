@@ -14,4 +14,10 @@ export class LoginService {
     return this.http.post(baseURL+'login',credenciales);
   }
 
+  login_repartidor(credenciales:any)
+  {
+    return this.http.post(baseURL+'login_repartidor',credenciales);
+  }
+
+
 }

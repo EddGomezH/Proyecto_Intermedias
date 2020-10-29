@@ -3,10 +3,12 @@ import { Router } from '@angular/router';
 import {Location} from '@angular/common';
 import { MatTable } from '@angular/material/table';
 
+import { OrdenesService } from "../../services/ordenes/ordenes.service";
+
 export interface Transferencia {
-  codigo: number;
-  descripcion: string;
-  precio:number;
+  numero: number;
+  usuario: string;
+  sede:number;
 }
 
 
@@ -17,19 +19,47 @@ export interface Transferencia {
 })
 export class OrdenesTransferenciaComponent implements OnInit {
 
-  columnas: string[] = ['codigo', 'descripcion', 'precio', 'borrar'];
+  columnas: string[] = ['numero', 'usuario', 'sede', 'estado','borrar'];
 
-  datos: Transferencia[] = [
-  {codigo: 1, descripcion: 'limones',  precio: 12} ,
-  {codigo: 2, descripcion: 'manzanas',  precio: 53} ,
-  {codigo: 3, descripcion: 'naranjas',  precio: 25} ,
-  ];
+  datos: Transferencia[] = [];
 
-  
+  id:any;
 
-  constructor(private router:Router,private _location: Location) { }
+  constructor(private router:Router,private _location: Location,public get_ventas:OrdenesService) { }
 
   ngOnInit(): void {
+    let id=sessionStorage.getItem('id');
+    let rol=sessionStorage.getItem('rol');
+
+    if(id==null)
+    {
+      this.router.navigate(['/login']);
+      return;
+      
+    }else if(rol!='3')
+    {
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    this.Iniciar_ordenes(id);
+    
+  }
+
+  Iniciar_ordenes(id:any)
+  {
+    this.get_ventas.obtener_transferencias({id}).subscribe((ordenes: any) => {
+
+      for(let registro of ordenes)
+      {
+          this.datos.push({
+          numero: registro.numero,
+          usuario: registro.usuario,
+          sede: registro.sede
+          });
+      }
+      this.tabla1.renderRows();
+    })
   }
 
   Regresar()
@@ -48,7 +78,15 @@ export class OrdenesTransferenciaComponent implements OnInit {
   }
   borrarOrden(cod: number)
   {
-    console.log(this.datos[cod]);
+    let numero=this.datos[cod].numero;
+    console.log(numero);
+    this.get_ventas.actualizar_transferencias({numero}).subscribe((res:any) => {
+      if(res.msg=='Correcto'){
+        console.log('La orden se modificó a entregada');
+      }else if(res.msg=='Incorrecto'){
+        console.log('No se pudo modificar la orden como entregada');
+      }
+    });
   }
 
 }

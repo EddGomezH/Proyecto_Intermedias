@@ -16,8 +16,8 @@
                 <div class="little-blok"></div>
                
                 <mat-form-field class="example-full-width">
-                  <mat-label>E-mail</mat-label>
-                  <input type="email" matInput placeholder="Ingresar correo" value=""  [(ngModel)]="credenciales.email" name="in_email" >
+                  <mat-label>{{credencial_name}}</mat-label>
+                  <input type="email" matInput placeholder="Ingresar credencial" value=""  [(ngModel)]="credenciales.email" name="in_email" >
                 </mat-form-field>
               
                 <mat-form-field class="example-full-width">
@@ -29,7 +29,7 @@
               <mat-form-field appearance="fill" class="select-field-form">
                 <mat-label>Selección de rol</mat-label>
                 <mat-select placeholder="seleccion" [(ngModel)]="rol_seleccionado" name="seleccion">
-                  <mat-option *ngFor="let rol of roles" [value]="rol.value">
+                  <mat-option *ngFor="let rol of roles" (click)="setEncargado(rol.value)"  [value]="rol.value">
                     {{rol.viewValue}}
                   </mat-option>
                 </mat-select>

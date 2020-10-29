@@ -35,15 +35,19 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit(): void {
     let id=sessionStorage.getItem('id');
-    console.log(id);
-    if(id!=null)
-    {
-      this.ColocarCampos(id);
-    }
-    else
+    let rol=sessionStorage.getItem('rol');
+
+    if(id==null)
     {
       this.router.navigate(['/login']);
+      return;
+      
+    }else if(rol!='3')
+    {
+      this.router.navigate(['/login']);
+      return;
     }
+    this.ColocarCampos(id);
     
   }
 

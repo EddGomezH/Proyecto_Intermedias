@@ -17,10 +17,12 @@ export class LoginComponent implements OnInit {
   roles: Rol[] = [
     {value: 1, viewValue: 'Vendedor'},
     {value: 2, viewValue: 'Bodeguero'},
-    {value: 3, viewValue: 'Repartidor'}
+    {value: 3, viewValue: 'Repartidor'},
+    {value: 4, viewValue: 'Encargado'},
   ];
 
-  
+  credencial_name;
+  credencial_key;
 
   credenciales=
   {
@@ -35,33 +37,71 @@ export class LoginComponent implements OnInit {
   constructor(private usuario_login:LoginService,private router:Router,private _location: Location) { }
 
   ngOnInit(): void {
+    this.credencial_name='E-mail'
   }
 
   login()
   {
     if(this.credenciales.email!=''&&this.credenciales.password!='')
     {
-      this.usuario_login.login(this.credenciales).subscribe((res:any) => {
-        if(res.msg!='Incorrecto'){
-          for(let registro of res.msg)
-          {
-            if(registro.FK_Rol==this.rol_seleccionado)
-            {
-              sessionStorage.setItem('id',registro.id_usuario);
-              alert('Sesión iniciada');
-              this.iniciar_sesion();
-              return;
-            }
-          }
-          alert("No tienes permiso de iniciar sesión con el rol seleccionado")
-          //console.log(res.msg);
-        }else {
-          alert('Error correo electrónico y/o contraseña incorrectos');
-        }
-      });   
-      return; 
+      if(this.rol_seleccionado!=4)
+      {
+        this.Iniciar_usuario();
+        return; 
+      }
+      this.Iniciar_Encargado();
+      return;
     }
     alert("Ingres sus credenciales por favor");
+  }
+  
+  Iniciar_usuario()
+  {
+    this.usuario_login.login(this.credenciales).subscribe((res:any) => {
+      if(res.msg!='Incorrecto'){
+        for(let registro of res.msg)
+        {
+          if(registro.FK_Rol==this.rol_seleccionado)
+          {
+            sessionStorage.setItem('id',registro.id_usuario);
+            sessionStorage.setItem('rol',this.rol_seleccionado+'');
+            alert('Sesión iniciada');
+            this.iniciar_sesion();
+            return;
+          }
+        }
+        alert("No tienes permiso de iniciar sesión con el rol seleccionado")
+        //console.log(res.msg);
+      }else {
+        alert('Error correo electrónico y/o contraseña incorrectos');
+      }
+    });   
+  }
+
+  Iniciar_Encargado()
+  {
+    this.usuario_login.login_repartidor(this.credenciales).subscribe((res:any) => {
+      if(res.msg!='Incorrecto'){
+          sessionStorage.setItem('id',res.msg.id_encargado);
+          sessionStorage.setItem('rol',this.rol_seleccionado+'');
+          alert('Sesión iniciada');
+          this.iniciar_sesion();
+        return;
+        //console.log(res.msg);
+      }else {
+        alert('Error usuario y/o contraseña incorrectos');
+      }
+    }); 
+  }
+
+  setEncargado(rol_valor)
+  {
+    if(rol_valor==4)
+    {
+      this.credencial_name='User'
+      return;
+    }
+    this.credencial_name='E-mail'
   }
 
   iniciar_sesion()
@@ -77,6 +117,10 @@ export class LoginComponent implements OnInit {
         alert("inicio bodeguero");
       break;
       case 3:
+        this.router.navigate(['/inicio-repartidor']);
+      break;
+      case 4:
+        alert("inicio Encargado");
         this.router.navigate(['/inicio-repartidor']);
       break;
     }
