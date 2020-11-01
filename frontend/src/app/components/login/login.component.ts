@@ -65,7 +65,6 @@ export class LoginComponent implements OnInit {
           {
             sessionStorage.setItem('id',registro.id_usuario);
             sessionStorage.setItem('rol',this.rol_seleccionado+'');
-            alert('Sesión iniciada');
             this.iniciar_sesion();
             return;
           }
@@ -84,7 +83,6 @@ export class LoginComponent implements OnInit {
       if(res.msg!='Incorrecto'){
           sessionStorage.setItem('id',res.msg.id_encargado);
           sessionStorage.setItem('rol',this.rol_seleccionado+'');
-          alert('Sesión iniciada');
           this.iniciar_sesion();
         return;
         //console.log(res.msg);
@@ -109,19 +107,20 @@ export class LoginComponent implements OnInit {
     switch(this.rol_seleccionado)
     {
       case 1:
-        //this.router.navigate(['/inicio-repartidor']);
-        alert("inicio vendedor");
+        this.router.navigate(['/inicio_vendedor']);
+        alert("Sesión iniciada vendedor");
       break;
       case 2:
-        //this.router.navigate(['/inicio-repartidor']);
-        alert("inicio bodeguero");
+        this.router.navigate(['/inicio-bodeguero']);
+        alert("Sesión iniciada bodeguero");
       break;
       case 3:
         this.router.navigate(['/inicio-repartidor']);
+        alert("Sesión iniciada repartidor");
       break;
       case 4:
-        alert("inicio Encargado");
-        this.router.navigate(['/inicio-repartidor']);
+        this.router.navigate(['/inicio_encargado']);
+        alert("Sesión iniciada Encargado");
       break;
     }
   }
