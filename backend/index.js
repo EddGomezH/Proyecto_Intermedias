@@ -11,14 +11,25 @@ app.use(cors());
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-    host: 'XXXXX',
-    user: 'XXXXX',
-    password: 'XXXXX',
-    database: 'XXXXX',
-    port: 0
+    host: 'localhost',
+    user: 'root',
+    password: '1234',
+    database: 'intermedias',
+    port: 3306
 });
 connection.connect();
 
 const prueba = require('./endpoints/prueba')(app,connection);
+const perfil = require('./endpoints/perfil')(app,connection);
+const perfil_modificar = require('./endpoints/perfil_modificar')(app,connection);
+
+const login = require('./endpoints/login')(app,connection);
+const login_R = require('./endpoints/login_rep')(app,connection);
+
+const get_ordenes_v = require('./endpoints/get_OV')(app,connection);
+const get_ordenes_o = require('./endpoints/get_OT')(app,connection);
+
+const set_estado_ordenes_v = require('./endpoints/set_estado_OV')(app,connection);
+const set_estado_ordenes_t = require('./endpoints/set_estado_OT')(app,connection);
 
 app.listen(3000, () => console.log('escuchando en puerto 3000'));
