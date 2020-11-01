@@ -14,11 +14,11 @@ export class InicioRepartidorComponent implements OnInit {
 
     if(id==null)
     {
-      this.router.navigate(['/login']);
+      this.router.navigate(['']);
       
     }else if(rol!='3')
     {
-      this.router.navigate(['/login']);
+      this.router.navigate(['']);
     }
 
   }
@@ -41,7 +41,7 @@ export class InicioRepartidorComponent implements OnInit {
     sessionStorage.removeItem('id');
     sessionStorage.removeItem('rol');
 
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
 
 }

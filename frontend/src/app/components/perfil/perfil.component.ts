@@ -39,12 +39,12 @@ export class PerfilComponent implements OnInit {
 
     if(id==null)
     {
-      this.router.navigate(['/login']);
+      this.router.navigate(['']);
       return;
       
-    }else if(rol!='3')
+    }else if(rol=='4')
     {
-      this.router.navigate(['/login']);
+      this.router.navigate(['']);
       return;
     }
     this.ColocarCampos(id);
@@ -114,6 +114,6 @@ export class PerfilComponent implements OnInit {
   }
   Cancelar()
   {
-    this._location.back();;
+    this._location.back();
   }
 }

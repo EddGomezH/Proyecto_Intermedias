@@ -9,7 +9,7 @@ import { OrdenesTransferenciaComponent } from './components/ordenes-transferenci
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LoginComponent
   },
   {

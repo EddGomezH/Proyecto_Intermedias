@@ -33,12 +33,12 @@ export class OrdenesTransferenciaComponent implements OnInit {
 
     if(id==null)
     {
-      this.router.navigate(['/login']);
+      this.router.navigate(['']);
       return;
       
     }else if(rol!='3')
     {
-      this.router.navigate(['/login']);
+      this.router.navigate(['']);
       return;
     }
 
@@ -64,7 +64,7 @@ export class OrdenesTransferenciaComponent implements OnInit {
 
   Regresar()
   {
-    this._location.back();;
+    this._location.back();
   }
 
   @ViewChild(MatTable) tabla1: MatTable<Transferencia>;
