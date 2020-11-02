@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '1234',
-    database: 'intermedias',
+    database: 'intermedias2',
     port: 3306
 });
 connection.connect();
@@ -22,6 +22,11 @@ connection.connect();
 const prueba = require('./endpoints/prueba')(app,connection);
 const perfil = require('./endpoints/perfil')(app,connection);
 const perfil_modificar = require('./endpoints/perfil_modificar')(app,connection);
+const registrar_cliente = require('./endpoints/registrar_cliente')(app,connection);
+const registrar_venta = require('./endpoints/registrar_venta')(app,connection);
+const graficas = require('./endpoints/graficas')(app,connection);
+const sede_encargado = require('./endpoints/sede_encargado')(app,connection);
+const registro_rol = require('./endpoints/registro_rol')(app,connection);
 
 const login = require('./endpoints/login')(app,connection);
 const login_R = require('./endpoints/login_rep')(app,connection);

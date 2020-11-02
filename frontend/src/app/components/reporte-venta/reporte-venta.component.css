@@ -1,0 +1,48 @@
+.cardconfig {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.center1 {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.center2 {
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 65%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.mat-card-title {
+    -webkit-text-stroke: 1px red;
+    color: white;
+    font-size: xx-large;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.mat-form-field {
+    width: 65%;
+    border: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    .mat-card {
+      width: 70%;
+      border-radius: 25px;
+      border: 2px solid red;
+      position: absolute;
+      margin-left: 10%;
+      top: 25%;
+    }
+}

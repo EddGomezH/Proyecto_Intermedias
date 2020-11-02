@@ -81,7 +81,8 @@ export class LoginComponent implements OnInit {
   {
     this.usuario_login.login_repartidor(this.credenciales).subscribe((res:any) => {
       if(res.msg!='Incorrecto'){
-          sessionStorage.setItem('id',res.msg.id_encargado);
+          sessionStorage.setItem('id',res.msg[0].id_encargado+'');
+          console.log(sessionStorage.getItem('id'))
           sessionStorage.setItem('rol',this.rol_seleccionado+'');
           this.iniciar_sesion();
         return;
