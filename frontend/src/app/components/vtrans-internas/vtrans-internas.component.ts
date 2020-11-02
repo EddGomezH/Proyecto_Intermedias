@@ -8,14 +8,12 @@ import { ToastrService } from 'ngx-toastr';
 import {BSolicitudT} from '../../models/bsolicitud-t';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-vatrans-externas',
-  templateUrl: './vatrans-externas.component.html',
-  styleUrls: ['./vatrans-externas.component.css']
+  selector: 'app-vtrans-internas',
+  templateUrl: './vtrans-internas.component.html',
+  styleUrls: ['./vtrans-internas.component.css']
 })
-export class VATransExternasComponent implements OnInit {
-
+export class VTransInternasComponent implements OnInit {
   id_usuario=1;
   transferencias: Transferencia[] = [];
   displayedColumns: string[] = ['producto', 'cantidad'];
@@ -23,10 +21,7 @@ export class VATransExternasComponent implements OnInit {
     Id_Encargado:0,
     FK_Sede:0
   };
-  
-
-
-  constructor(private router: Router,private toastr: ToastrService,private dialogService: DialogServiceService,public GTES:GetTransEService, public GBS:GetBodegasService, public GS:GetSedeService ) {
+  constructor(private router:Router,private toastr: ToastrService,private dialogService: DialogServiceService,public GTES:GetTransEService, public GBS:GetBodegasService, public GS:GetSedeService ) {
     if (!sessionStorage.getItem("id")) {
       this.router.navigate(['/login']);
     }
@@ -38,25 +33,29 @@ export class VATransExternasComponent implements OnInit {
       this.id_usuario = Number(sessionStorage.getItem("id"));
     }
   }
-
-  ngOnInit(): void {
-    this.getTransE();
-    this.getSedeActual();
+ async ngOnInit() {
+    await this.getSedeActual();
+    this.getTransI();
   }
 
-  getTransE() {
+ getTransI() {
     //funcion que consume el servicio para obtener todas las tareas
-    this.GTES.GetTransfE().subscribe((data_api: any) => {
+    this.GTES.GetTransfI(this.se[0].FK_Sede).subscribe((data_api: any) => {
       this.transferencias = data_api;
+      console.log(this.transferencias);
+
     })
   }
 
-  getSedeActual(){
-    this.GS.GetSede(this.id_usuario).subscribe((data_api: any) => {
-      
-      this.se = data_api;
-      sessionStorage.setItem("Id_Sede",this.se[0].FK_Sede);
-    })
+  async getSedeActual() {
+    return new Promise((resolve, reject) => {
+      this.GS.GetSede(this.id_usuario).subscribe((data_api: any) => {
+
+        this.se = data_api;
+        sessionStorage.setItem("Id_Sede", this.se[0].FK_Sede);
+        resolve();
+      })
+    });
   }
 
   Aceptar(tra:Transferencia){
@@ -84,4 +83,5 @@ export class VATransExternasComponent implements OnInit {
       }
     })
   }
+
 }

@@ -19,6 +19,12 @@ import { SolicitarTransComponent } from './components/solicitar-trans/solicitar-
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import { VATransExternasComponent } from './components/vatrans-externas/vatrans-externas.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
+import { DialogoTransEComponent } from './components/dialogo-trans-e/dialogo-trans-e.component';
+import { VTransInternasComponent } from './components/vtrans-internas/vtrans-internas.component';
+import { InicioBodegueroComponent } from './components/inicio-bodeguero/inicio-bodeguero.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +32,16 @@ import { VATransExternasComponent } from './components/vatrans-externas/vatrans-
     ActualizacionInventarioComponent,
     DialogoActProducComponent,
     SolicitarTransComponent,
-    VATransExternasComponent
+    VATransExternasComponent,
+    DialogoTransEComponent,
+    VTransInternasComponent,
+    InicioBodegueroComponent
   ],
   imports: [
     MatSelectModule,
+    MatTableModule,
+    MatDividerModule,
+    MatExpansionModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,

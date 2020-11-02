@@ -18,15 +18,16 @@ export class ActualizacionInventarioComponent implements OnInit {
   idUsuario=0;
 
   constructor(private actProduc:ActProductoService,private dialogService: DialogServiceService,private toastr: ToastrService,private router: Router,public ObPro:ObProductosService) { 
-    /*if(!sessionStorage.getItem("id_usuario")){
-      //menu.openSnackBar("No ha iniciado sesión", "Cerrar");
+    if (!sessionStorage.getItem("id")) {
       this.router.navigate(['/login']);
     }
-    
-    this.idUsuario = Number(sessionStorage.getItem("id_usuario"));
-    
-    */
-   this.idUsuario=1;
+    else if (sessionStorage.getItem("rol") == "4" || sessionStorage.getItem("rol") == "2") {
+      this.router.navigate(['/login']);
+    }
+    else {
+      //agregar redireccion a la vista anterior
+      this.idUsuario = Number(sessionStorage.getItem("id"));
+    }
   }
 
   ngOnInit(): void {

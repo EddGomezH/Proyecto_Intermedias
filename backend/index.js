@@ -26,5 +26,10 @@ const PostTransferencia= require('./endpoints/PostTransferencia')(app,connection
 const PostDtrans= require('./endpoints/PostDTrans')(app,connection);
 const GetContra= require('./endpoints/RContrasenia')(app,connection);
 const GetTransE= require('./endpoints/TransExternas')(app,connection);
+const GetBodegaSede= require('./endpoints/GetBodegasSede')(app,connection);
+const GetSede= require('./endpoints/GetSede')(app,connection);
+const GetRepartidores= require('./endpoints/GetRepartidores')(app,connection);
+const PostSolicitud= require('./endpoints/PostSolicitud')(app,connection);
+const GetTransI= require('./endpoints/GetTransferenciasI')(app,connection);
 
 app.listen(3000, () => console.log('escuchando en puerto 3000'));

@@ -2,7 +2,7 @@ module.exports = (app,connection) => {
     app.post('/Transferencia', async (req,res) => {
         var id_sede = req.body.Id_Sede;
         var id_usuario= req.body.Id_Usuario;
-        connection.query(`insert into Transferencia (Tipo, Id_Usuario, Id_Sede) values ('${req.body.Tipo}','${parseInt(id_usuario)}','${parseInt(id_sede)}');`,function (err, rows, fields) {
+        connection.query(`insert into Transferencia (Tipo, Id_Usuario,Aceptado,Id_Sede) values ('${req.body.Tipo}','${parseInt(id_usuario)}','${0}','${parseInt(id_sede)}');`,function (err, rows, fields) {
             if (!err) {
                 
                 var trans=0;

@@ -28,12 +28,17 @@ export class SolicitarTransComponent implements OnInit {
   Respu$:Observable<any>; 
 
   constructor(public AdT:AgDetalleTransService,public ObPro:ObProductosService,private toastr: ToastrService,public AT:AgTransferenciaService, public bd:GetBodegasService,private router: Router,) {
-    /*if(!sessionStorage.getItem("id_usuario")){
+    if (!sessionStorage.getItem("id")) {
       this.router.navigate(['/login']);
     }
-    
-    this.idUsuario = Number(sessionStorage.getItem("id_usuario"));*/
-    this.idUsuario = 1;
+    else if (sessionStorage.getItem("rol") == "4" || sessionStorage.getItem("rol") == "2") {
+      this.router.navigate(['/login']);
+    }
+    else {
+      //agregar redireccion a la vista anterior
+      this.idUsuario = Number(sessionStorage.getItem("id"))
+
+    }
   }
 
   ngOnInit(): void {
@@ -107,11 +112,14 @@ export class SolicitarTransComponent implements OnInit {
           resolve();
         } else {
           this.toastr.error('Transacción no pudo ser solicitada!', 'Transacción');
+          resolve();
         }
       },
         err => {
           this.toastr.error('Error al conectar con servidor!', 'Transacción fallida');
+          resolve();
         }
+       
       );
     });
   }
@@ -127,16 +135,16 @@ export class SolicitarTransComponent implements OnInit {
           resolve();
         } else {
           this.toastr.error('Transacción no pudo ser solicitada!', 'Transacción');
+          resolve();
         }
       },
         err => {
           this.toastr.error('Error al conectar con servidor!', 'Transacción fallida');
+          resolve();
         }
       );
     });
   }
 
-  private handleError(error: any) {
-    return throwError(error);
-  }
+  
 }

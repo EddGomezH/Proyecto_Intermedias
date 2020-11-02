@@ -4,6 +4,8 @@ import {ActualizacionInventarioComponent} from '../app/components/actualizacion-
 import { fromEventPattern } from 'rxjs';
 import {SolicitarTransComponent} from '../app/components/solicitar-trans/solicitar-trans.component';
 import {VATransExternasComponent} from '../app/components/vatrans-externas/vatrans-externas.component';
+import {VTransInternasComponent} from '../app/components/vtrans-internas/vtrans-internas.component';
+import {InicioBodegueroComponent} from '../app/components/inicio-bodeguero/inicio-bodeguero.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,14 @@ const routes: Routes = [
     path: 'VerTransEx',
     component: VATransExternasComponent,
   },
+  {
+    path: 'VerTransIn',
+    component: VTransInternasComponent,
+  },
+  {
+    path: 'inicio-bodeguero',
+    component: InicioBodegueroComponent,
+  }
 ];
 
 @NgModule({
