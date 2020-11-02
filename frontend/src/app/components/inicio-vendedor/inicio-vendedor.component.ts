@@ -26,7 +26,7 @@ export class InicioVendedorComponent implements OnInit {
   }
 
   perfil(){
-    console.log('perfil...')
+    this.router.navigate(['/perfil']);
   }
 
   Salir(){
