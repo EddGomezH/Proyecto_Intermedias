@@ -1,0 +1,30 @@
+<div>
+    <div class="content-container">
+        <span class="content-span full-width">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Actualizando Producto
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </div>
+    <mat-form-field style="margin-left:15;">
+        <input #CantN matInput style="text-align: center;"   placeholder="Cantidad Nueva" style=" margin-left:15;" type="text" >
+    </mat-form-field>
+    <br>
+    <mat-form-field style="text-align: center;">
+        <input #Motivo matInput style="text-align: center;"   placeholder="Motivo" style=" margin-left:15;" type="text" >
+    </mat-form-field>
+    <br>
+    <mat-form-field style="text-align: center;">
+        <mat-select  placeholder="Bodega" [(ngModel)]="selectedValue" name="bodega">
+          <mat-option *ngFor="let bodega of Bodegas" [value]="bodega.Id_Bodega">
+            {{bodega.Nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    <br>
+    <br>
+    <br>
+
+    <button mat-flat-button id="no-button"  [mat-dialog-close]= '{"resp":false}' >Cancelar</button>
+    <button mat-flat-button id="yes-button" [mat-dialog-close]= 'OnResT(CantN.value,Motivo.value,selectedValue)'> Actualizar</button>
+</div>

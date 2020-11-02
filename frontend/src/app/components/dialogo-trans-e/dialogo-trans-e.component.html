@@ -1,0 +1,32 @@
+<div>
+    <div class="content-container">
+        <span class="content-span full-width">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Seleccionar Bodega Proveedora
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </div>
+    
+    <mat-form-field style="text-align: center;">
+        <mat-select [(ngModel)]="selectedValue" name="bodega">
+          <mat-option *ngFor="let bodega of Bodegas" [value]="bodega.Id_Bodega">
+            {{bodega.Nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field style="text-align: center;">
+        <mat-select [(ngModel)]="selectedValue2" name="repartidor">
+          <mat-option *ngFor="let repartidor of Repartidores" [value]="repartidor.Id_usuario">
+            {{repartidor.Nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>  
+    <br>
+    <br>
+    <br>
+
+    <button mat-flat-button id="no-button"  [mat-dialog-close]= '{"resp":false}' >Cancelar</button>
+    <button mat-flat-button id="yes-button" [mat-dialog-close]= 'OnResT(selectedValue,selectedValue2)'> Aceptar</button>
+</div>

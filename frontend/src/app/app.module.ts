@@ -26,7 +26,20 @@ import { ChartsModule } from 'ng2-charts';
 import { InicioEncargadoComponent } from './components/inicio-encargado/inicio-encargado.component';
 import { SedeEncargadoComponent } from './components/sede-encargado/sede-encargado.component';
 import { RegistarRolComponent } from './components/registar-rol/registar-rol.component';
-
+import { ActualizacionInventarioComponent } from './components/actualizacion-inventario/actualizacion-inventario.component';
+import { DialogoActProducComponent } from './components/dialogo-act-produc/dialogo-act-produc.component';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SolicitarTransComponent } from './components/solicitar-trans/solicitar-trans.component';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
+import { VATransExternasComponent } from './components/vatrans-externas/vatrans-externas.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider';
+import { DialogoTransEComponent } from './components/dialogo-trans-e/dialogo-trans-e.component';
+import { VTransInternasComponent } from './components/vtrans-internas/vtrans-internas.component';
+import { InicioBodegueroComponent } from './components/inicio-bodeguero/inicio-bodeguero.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { OrdenesVentaComponent } from './components/ordenes-venta/ordenes-venta.component';
 import { InicioRepartidorComponent } from './components/inicio-repartidor/inicio-repartidor.component';
 import { OrdenesTransferenciaComponent } from './components/ordenes-transferencia/ordenes-transferencia.component';
@@ -48,9 +61,24 @@ PdfMakeWrapper.setFonts(pdfFonts);
     ReporteVentaComponent,
     SedeEncargadoComponent,
     InicioEncargadoComponent,
-    RegistarRolComponent
+    RegistarRolComponent,
+    ActualizacionInventarioComponent,
+    SolicitarTransComponent,
+    DialogoActProducComponent,
+    VATransExternasComponent,
+    DialogoTransEComponent,
+    VTransInternasComponent,
+    InicioBodegueroComponent
   ],
   imports: [
+    MatSelectModule,
+    MatTableModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     MatInputModule,
@@ -66,9 +94,13 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MatFormFieldModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    ChartsModule
+    ChartsModule,
+    MatListModule,
+    MatRadioModule,
+    MatDialogModule, // <--- Aquí
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{ provide: MatDialogRef, useValue: {} }, { provide: MAT_DIALOG_DATA, useValue: [] }],
+  bootstrap: [AppComponent],
+ 
 })
 export class AppModule { }

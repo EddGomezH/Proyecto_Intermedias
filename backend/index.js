@@ -13,9 +13,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '1234',
-    database: 'intermedias2',
-    port: 3306
+    password: 'hola1234',
+    database: 'SistemaBodegas'
 });
 connection.connect();
 
@@ -27,6 +26,17 @@ const registrar_venta = require('./endpoints/registrar_venta')(app,connection);
 const graficas = require('./endpoints/graficas')(app,connection);
 const sede_encargado = require('./endpoints/sede_encargado')(app,connection);
 const registro_rol = require('./endpoints/registro_rol')(app,connection);
+const ObtenerProductos = require('./endpoints/GetProductos')(app,connection);
+const PostProductos = require('./endpoints/PostLog')(app,connection);
+const GetBodegas = require('./endpoints/GetBodegas')(app,connection);
+const PostTransferencia= require('./endpoints/PostTransferencia')(app,connection);
+const PostDtrans= require('./endpoints/PostDTrans')(app,connection);
+const GetTransE= require('./endpoints/TransExternas')(app,connection);
+const GetBodegaSede= require('./endpoints/GetBodegasSede')(app,connection);
+const GetSede= require('./endpoints/GetSede')(app,connection);
+const GetRepartidores= require('./endpoints/GetRepartidores')(app,connection);
+const PostSolicitud= require('./endpoints/PostSolicitud')(app,connection);
+const GetTransI= require('./endpoints/GetTransferenciasI')(app,connection);
 
 const login = require('./endpoints/login')(app,connection);
 const login_R = require('./endpoints/login_rep')(app,connection);
