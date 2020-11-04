@@ -13,8 +13,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'edestroyer007',
-    database: 'intermedias'
+    password: 'hola1234',
+    database: 'SistemaBodegas'
 });
 connection.connect();
 
@@ -47,4 +47,5 @@ const get_ordenes_o = require('./endpoints/get_OT')(app,connection);
 const set_estado_ordenes_v = require('./endpoints/set_estado_OV')(app,connection);
 const set_estado_ordenes_t = require('./endpoints/set_estado_OT')(app,connection);
 
+const GetContra= require('./endpoints/RContrasenia')(app,connection);
 app.listen(3000, () => console.log('escuchando en puerto 3000'));
