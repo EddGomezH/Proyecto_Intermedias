@@ -1,0 +1,61 @@
+<div class="cardconfig">
+    <div class="center1">
+        <mat-card style="width: 475px;">
+            <mat-card-header>
+              <mat-card-title>Venta</mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="margin-left: 20px;">
+                <p>
+                    <mat-form-field style="width: 320px;">
+                        <mat-label>NIT: </mat-label>
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <input matInput [(ngModel)]="venta.nit">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-label>Tipo Entrega: </mat-label>
+                    <br>
+                    <mat-checkbox [(ngModel)]="domicilio">Local</mat-checkbox>
+                </p>
+                <p>
+                    <mat-form-field style="width: 320px;">
+                        <mat-label>Fecha Entrega: </mat-label>
+                        <input matInput type="date" [(ngModel)]="venta.fecha_entrega" [(disabled)]="domicilio">
+                    </mat-form-field>
+                </p>
+            </mat-card-content>
+            <mat-card-actions style="margin-left: 20px;">
+              <button mat-raised-button color="primary" (click)="Vender()">Realizar Venta</button>
+              <button mat-raised-button [disabled]="vendido" color="accent" style="margin-left: 15px;" (click)="GenerarFactura()">Ver Factura</button>
+              <button mat-raised-button color="warn" (click)="Volver()">Volver</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+    <div class="center2">
+        <mat-card style="width: 525px;">
+            <mat-card-header>
+              <mat-card-title>Productos Disponibles</mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="margin-left: 20px;" [style.overflow]="'auto'" [style.height.px]="'300'">
+                <table border="1" cellspacing="0" style="width: 450px;">
+                    <tr>
+                      <th>No</th>
+                      <th>Nombre</th>
+                      <th>Precio</th>
+                      <th>Cantidad</th>
+                      <th>Descuento</th>
+                      <th>Agregar</th>
+                    </tr>
+                    <tr *ngFor="let prod of lproducto let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{prod.Nombre}}</td>
+                        <td>{{prod.Precio}}</td>
+                        <td><input matInput [(ngModel)]="prod.cantidad"></td>
+                        <td><input matInput [(ngModel)]="prod.descuento"></td>
+                        <td><button mat-raised-button color="primary" (click)="AgregarCarrito(prod)">Agregar</button></td>
+                    </tr>
+                  </table>
+            </mat-card-content>
+          </mat-card>
+    </div>
+</div>

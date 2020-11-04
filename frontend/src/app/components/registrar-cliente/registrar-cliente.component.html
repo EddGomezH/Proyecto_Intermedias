@@ -1,0 +1,47 @@
+<div class="cardconfig">
+    <div class="center1">
+        <mat-card style="width: 475px;">
+            <mat-card-header>
+              <mat-card-title>Registrar Cliente</mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="margin-left: 20px;">
+                <p>
+                    <mat-form-field style="width: 320px;">
+                        <mat-label>Nombre: </mat-label>
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <input matInput [(ngModel)]="cliente.nombre">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field style="width: 320px;">
+                        <mat-label>NIT: </mat-label>
+                        <mat-icon matSuffix>dialpad</mat-icon>
+                        <input matInput [(ngModel)]="cliente.nit">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field style="width: 320px;">
+                        <mat-label>DPI: </mat-label>
+                        <mat-icon matSuffix>credit_card</mat-icon>
+                        <input matInput [(ngModel)]="cliente.dpi">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field style="width: 320px;">
+                        <mat-label>Direccion: </mat-label>
+                        <mat-icon matSuffix>home</mat-icon>
+                        <input matInput [(ngModel)]="cliente.direccion">
+                    </mat-form-field>
+                </p>
+            </mat-card-content>
+            <mat-card-actions style="margin-left: 20px;">
+              <button mat-raised-button color="primary" (click)="Registrar()">Registrar</button>
+              <button mat-raised-button color="warn" (click)="Volver()">Volver</button>
+              <br>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+    <div class="center2">
+        <img src="assets/images/cliente.jpg" style="height: 200px; width: 200px; border-radius: 50px;">
+    </div>
+</div>
