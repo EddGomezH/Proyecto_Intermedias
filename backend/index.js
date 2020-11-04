@@ -13,8 +13,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'hola1234',
-    database: 'SistemaBodegas'
+    password: 'edestroyer007',
+    database: 'intermedias'
 });
 connection.connect();
 

@@ -30,7 +30,7 @@ export class VATransExternasComponent implements OnInit {
     if (!sessionStorage.getItem("id")) {
       this.router.navigate(['']);
     }
-    else if (sessionStorage.getItem("rol") != "4" || sessionStorage.getItem("rol") != "2") {
+    else if (sessionStorage.getItem("rol") != "2") {
       this.router.navigate(['']);
     }
     else {

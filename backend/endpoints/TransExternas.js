@@ -1,8 +1,8 @@
 module.exports = (app,connection) => {
     app.post('/TransExternas', async (req,res) => {
-        connection.query(`select Transferencia.Id_Trans,Sede.Nombre as 'NSede',Producto.Nombre as 'NProducto', Producto.Id_Producto,Cantidad,Encargado.Nombre as 'Encargado'from Producto_Trans
+        connection.query(`select Transferencia.Id_Trans,Sede.Alias as 'NSede',Producto.Nombre as 'NProducto', Producto.Id_Producto,Cantidad,Usuario.Nombre as 'Encargado'from Producto_Trans
         inner join Transferencia on (Producto_Trans.Id_Trans=Transferencia.Id_Trans)
-        inner join Encargado on (Transferencia.Id_Usuario=Encargado.Id_Encargado)
+        inner join Usuario on (Transferencia.Id_Usuario=Usuario.Id_Usuario)
         inner join Producto on (Producto.Id_Producto=Producto_Trans.Id_Producto)
         inner join Sede on (Sede.Id_Sede=Transferencia.Id_Sede) where  Tipo=0 and Aceptado=false;
         `,function (err, rows, fields) {

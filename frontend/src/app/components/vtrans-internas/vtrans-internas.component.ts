@@ -25,7 +25,7 @@ export class VTransInternasComponent implements OnInit {
     if (!sessionStorage.getItem("id")) {
       this.router.navigate(['']);
     }
-    else if (sessionStorage.getItem("rol") != "4" || sessionStorage.getItem("rol") != "2") {
+    else if (sessionStorage.getItem("rol") != "2") {
       this.router.navigate(['']);
     }
     else {
@@ -40,8 +40,10 @@ export class VTransInternasComponent implements OnInit {
 
  getTransI() {
     //funcion que consume el servicio para obtener todas las tareas
+    this.se[0].FK_Sede = Number(sessionStorage.getItem('Id_Sede'));
     this.GTES.GetTransfI(this.se[0].FK_Sede).subscribe((data_api: any) => {
       this.transferencias = data_api;
+      console.log(this.se[0].FK_Sede);
       console.log(this.transferencias);
 
     })
