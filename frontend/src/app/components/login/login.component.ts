@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {Location} from '@angular/common';
 import { LoginService } from "../../services/login/login.service";
+import {RecuperarContraService}from '../../services/RContra/recuperar-contra.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 interface Rol {
   value: number;
@@ -34,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   fg_email: string 
   
-  constructor(private usuario_login:LoginService,private router:Router,private _location: Location) { }
+  constructor(private toastr: ToastrService,private RC:RecuperarContraService, private usuario_login:LoginService,private router:Router,private _location: Location) { }
 
   ngOnInit(): void {
     this.credencial_name='E-mail'
@@ -128,7 +131,18 @@ export class LoginComponent implements OnInit {
 
   enviar()
   {
-    console.log(this.fg_email)
+    this.RC.RContra(this.fg_email).subscribe( res => {
+        console.log(res);
+        if(res.res==200){
+          this.toastr.success('Se ha enviado un correo!','Correo');
+        }else{
+          this.toastr.error('Verifique su correo!','Correo');
+        } 
+      },
+      err => {
+        this.toastr.error('Error al conectar con servidor!','Problema');
+      }
+    );
   }
   
 }

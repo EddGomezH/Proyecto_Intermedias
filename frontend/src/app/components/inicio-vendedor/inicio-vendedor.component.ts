@@ -30,6 +30,9 @@ export class InicioVendedorComponent implements OnInit {
   }
 
   Salir(){
-    //sessionStorage.clear();
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('rol');
+
+    this.router.navigate(['']);
   }
 }

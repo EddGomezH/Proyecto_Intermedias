@@ -89,15 +89,17 @@ export class RegistrarVentaComponent implements OnInit {
           pdf.add(
             new Table([[new Txt('Producto: ').end,productos[i].Nombre]]).widths(['*',250]).end
           );
-          subtotal+=productos[i].Total;
           pdf.add(
             new Table([[productos[i].Cantidad, productos[i].Total/productos[i].Cantidad]]).widths(['*',250]).end
           );
+          subtotal+=productos[i].Total;
         }
         pdf.add(
           new Table([[new Txt('Subtotal').fontSize(15).bold().end, new Txt(subtotal.toString()).fontSize(15).bold().end]]).widths(['*',250]).end
         );
-        descuento=subtotal-total_factura;
+        if(subtotal > total_factura){
+          descuento=subtotal-total_factura;
+        }
         pdf.add(
           new Table([[new Txt('Descuento').fontSize(15).bold().end, new Txt(this.formateaValor(descuento).toString()).fontSize(15).bold().end]]).widths(['*',250]).end
         );
