@@ -21,5 +21,10 @@ export class InicioEncargadoComponent implements OnInit {
     this.router.navigate(['/registrar_rol']);
   }
 
-  salir(){}
+  salir(){
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('rol');
+
+    this.router.navigate(['']);
+  }
 }
