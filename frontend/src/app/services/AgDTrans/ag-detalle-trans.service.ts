@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {HttpHeaders}  from '@angular/common/http';
+import { baseURL } from '../shared/baseURL';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,6 @@ export class AgDetalleTransService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.post<any>( 'http://localhost:3000/DetalleTransferencia', {Id_Producto:Id_Producto, Id_Trans:Id_Trans, Cantidad:Cantidad} , httpOptions);
+    return this.http.post<any>( baseURL+'DetalleTransferencia', {Id_Producto:Id_Producto, Id_Trans:Id_Trans, Cantidad:Cantidad} , httpOptions);
   }
 }

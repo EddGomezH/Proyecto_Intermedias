@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {HttpHeaders}  from '@angular/common/http';
 import {BSolicitudT} from '../../models/bsolicitud-t';
+import { baseURL } from '../shared/baseURL';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,7 @@ export class GetTransEService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.post<any>( 'http://localhost:3000/TransExternas', {Tipo:0} , httpOptions);
+    return this.http.post<any>( baseURL+'TransExternas', {Tipo:0} , httpOptions);
   }
 
   PostSolitud(sol:BSolicitudT){
@@ -25,7 +27,7 @@ export class GetTransEService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.post<any>( 'http://localhost:3000/Solicitud', sol , httpOptions);
+    return this.http.post<any>( baseURL+'Solicitud', sol , httpOptions);
   }
 
   GetTransfI(sede:number){
@@ -34,7 +36,7 @@ export class GetTransEService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.post<any>( 'http://localhost:3000/TransInternas', {Tipo:1,Id_Sede:sede} , httpOptions);
+    return this.http.post<any>( baseURL+'TransInternas', {Tipo:1,Id_Sede:sede} , httpOptions);
   }
 
 }

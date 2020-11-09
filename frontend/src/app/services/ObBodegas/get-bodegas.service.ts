@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {HttpHeaders}  from '@angular/common/http';
+import { baseURL } from '../shared/baseURL';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class GetBodegasService {
   constructor(private http: HttpClient) { }
   
   getBodegas(){
-    return this.http.get('http://localhost:3000/Bodegas');
+    return this.http.get(baseURL+'Bodegas');
   }
 
   getBodegaSede(id_sede:number) {
@@ -19,6 +20,6 @@ export class GetBodegasService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.post<any>('http://localhost:3000/ObBodegaSede', { Id_Sede: id_sede }, httpOptions);
+    return this.http.post<any>(baseURL+'ObBodegaSede', { Id_Sede: id_sede }, httpOptions);
   }
 }

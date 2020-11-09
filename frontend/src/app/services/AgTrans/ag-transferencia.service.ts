@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {HttpHeaders}  from '@angular/common/http';
+import { baseURL } from '../shared/baseURL';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,6 @@ export class AgTransferenciaService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.post<any>( 'http://localhost:3000/Transferencia', {Tipo:Tipo, Id_Usuario:Id_Usuario, Id_Sede:Id_Sede} , httpOptions);
+    return this.http.post<any>( baseURL+'Transferencia', {Tipo:Tipo, Id_Usuario:Id_Usuario, Id_Sede:Id_Sede} , httpOptions);
   }
 }
